@@ -131,7 +131,7 @@ int ApplicationCloud::Initialize()
 
 #if 1 	/* set up app-defined camera if desired, else use camera defaults */
 	camera.position[X] = 15;
-	camera.position[Y] = 15;
+	camera.position[Y] = -15;
 	camera.position[Z] = 17;
 
 	camera.lookat[X] = 0;
@@ -146,17 +146,17 @@ int ApplicationCloud::Initialize()
 
 	status |= m_pRender->GzPutCamera(camera);
 
-	lightSource.position[X] = 0.0;
-	lightSource.position[Y] = 20;
-	lightSource.position[Z] = 10;
+	lightSource.position[X] = 0;
+	lightSource.position[Y] = -15;
+	lightSource.position[Z] = 0;
 
 	lightSource.lookat[X] = 0.0;
 	lightSource.lookat[Y] = 0.0;
 	lightSource.lookat[Z] = 0.0;
 
 	lightSource.worldup[X] = 0.0;
-	lightSource.worldup[Y] = 1.0;
-	lightSource.worldup[Z] = 0.0;
+	lightSource.worldup[Y] = 0.0;
+	lightSource.worldup[Z] = 1.0;
 
 	lightSource.FOV = 53;
 

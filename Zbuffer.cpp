@@ -403,7 +403,7 @@ int GzDepthMap::drawMap() {
 			if ((flag1 == right_flag_temp && flag2 == right_flag_temp && flag3 == right_flag_temp) || (flag1 == on_line_flag_temp) || (flag3 == on_line_flag_temp && !isLRR_temp)) {
 				// interpolateZ and compare
 				float z = interpolateZ(i, j, &A, &B, &C, &D);
-				z += 10000000;
+				//z += 10000000;
 				if (zbuffer[ARRAY(i, j)] > z) {
 					zbuffer[ARRAY(i, j)] = z;
 				}
@@ -537,7 +537,7 @@ int GzDepthMap::startUp() {
 
 	Xsp[0][0] = xres / 2;
 	Xsp[0][3] = xres / 2;
-	Xsp[1][1] = -(float)(yres / 2);
+	Xsp[1][1] = -(float)(xres / 2);
 	Xsp[1][3] = yres / 2;
 	Xsp[2][2] = maxZ;
 	GzPushMatrix(Xsp);
@@ -663,7 +663,7 @@ float GzDepthMap::GzFindZ(GzCoord position) {
 	if (depth < 0) {
 		return -1;
 	}
-	if (depth < point.z) {
+	if (depth < point.z + 1000000) {
 		return max(point.z - depth, (float)100) / 100; // shade
 	}
 	return 0.0; // no shade
