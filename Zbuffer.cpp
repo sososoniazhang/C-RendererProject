@@ -466,6 +466,8 @@ GzDepthMap::GzDepthMap(int zmax, bool d) {
 GzDepthMap::~GzDepthMap() {
 	free(zbuffer);
 	zbuffer = nullptr;
+	free(pixelbuffer);
+	free(framebuffer);
 }
 
 
